@@ -1,4 +1,4 @@
-# crm
+# CRM App
 
 1. npm install
 2. react-native eject

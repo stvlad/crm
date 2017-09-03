@@ -84,15 +84,15 @@ export default class Login extends Component {
       if(this.state.loading) {
           return <Loader size="large" />
       } else {
-          return <LoginButton onPress={this.onButtonPress.bind(this)} />
+          return <LoginButton onPress={this.onButtonPress.bind(this)} testID="loginSubmit" />
       }
   }
 
   render() {
     const {form,container,fieldStyle, loginButtonArea, errorMessage} = styles;
     return (
-      <View style={container}>
-        <Text style={{alignSelf: 'center'}}>Login or Sign Up</Text>
+      <View style={container} testID='login'>
+        <Text style={{alignSelf: 'center', fontSize: 20, marginBottom:10}}>Login or Sign Up</Text>
         <View style={form}>    
             <MKTextField 
                 text={this.state.email}
@@ -100,6 +100,7 @@ export default class Login extends Component {
                 textInputStyle={fieldStyle}
                 placeholder='Email...'
                 tintColor={MKColor.Lime}
+                testID='email'
             />
             <MKTextField 
                 text={this.state.password}
@@ -108,8 +109,9 @@ export default class Login extends Component {
                 placeholder='Password ...'
                 tintColor={MKColor.Lime}
                 password={true}
+                testID='password'
             />
-            <Text style={errorMessage}>
+            <Text style={errorMessage} testID='errorMsg'>
                 {this.state.error}
             </Text>
             <View style={loginButtonArea}>
